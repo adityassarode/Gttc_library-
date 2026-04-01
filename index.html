@@ -6,87 +6,79 @@
     <title>The Books Library</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="app" class="app-shell">
-      <aside class="sidebar card">
-        <div>
-          <h1 class="brand">THE BOOKS</h1>
-          <p class="menu-label">MENU</p>
-          <nav>
-            <button class="nav-item active" data-route="discover"><span>🏠</span>Discover</button>
-            <button class="nav-item" data-route="categories"><span>◻️</span>Category</button>
-            <button class="nav-item" data-route="my-library"><span>📖</span>My Library</button>
-            <button class="nav-item" data-route="reserved"><span>📌</span>Reserved</button>
-            <button class="nav-item" data-route="favorites"><span>❤️</span>Favorite</button>
-          </nav>
-          <hr />
-          <nav>
-            <button class="nav-item" data-route="settings"><span>⚙️</span>Setting</button>
-            <button class="nav-item" data-route="help"><span>❔</span>Help</button>
-            <button class="nav-item" data-route="admin"><span>🛡️</span>Admin</button>
-            <button class="nav-item" id="logoutBtn"><span>🚪</span>Log out</button>
-          </nav>
-        </div>
-        <div class="library-tile">
-          <div class="tile-art"></div>
+    <div class="shell">
+      <aside class="sidebar">
+        <h1 class="logo">THE BOOKS</h1>
+        <p class="menu-title">MENU</p>
+        <nav class="nav-list" id="mainNav">
+          <button class="nav-item active" data-route="discover"><span class="dot active-dot"></span>Discover</button>
+          <button class="nav-item" data-route="categories"><span class="dot"></span>Category</button>
+          <button class="nav-item" data-route="my-library"><span class="dot"></span>My Library</button>
+          <button class="nav-item" data-route="reserved"><span class="dot"></span>Download</button>
+          <button class="nav-item" data-route="favorites"><span class="dot"></span>Favorite</button>
+        </nav>
+        <hr />
+        <nav class="nav-list">
+          <button class="nav-item" data-route="settings"><span class="dot"></span>Setting</button>
+          <button class="nav-item" data-route="help"><span class="dot"></span>Help</button>
+          <button class="nav-item" id="logoutBtn"><span class="dot"></span>Log out</button>
+          <button class="nav-item" data-route="admin"><span class="dot"></span>Admin</button>
+        </nav>
+        <div class="library-badge">
+          <div class="art"></div>
           <span>BOOK LIBRARY</span>
         </div>
       </aside>
 
-      <main class="main-wrapper card">
-        <section class="top-panel">
-          <div>
+      <main class="main">
+        <section class="hero">
+          <div class="hero-inner">
             <h2 id="pageTitle">Discover</h2>
-            <div class="search-row">
+            <div class="search-wrap">
               <select id="categoryFilter"></select>
-              <input id="searchInput" type="text" placeholder="find the book you like..." />
-              <button id="searchBtn" class="btn btn-primary">Search</button>
+              <input id="searchInput" placeholder="find the book you like ..." />
+              <button id="searchBtn">Search</button>
             </div>
           </div>
-          <div class="profile-box" id="profileBox"></div>
+          <div class="user-chip" id="profileBox"></div>
         </section>
 
-        <section class="content-panel" id="content"></section>
+        <section id="content" class="content"></section>
       </main>
     </div>
 
     <dialog id="authModal" class="modal">
       <form class="modal-card" id="authForm" method="dialog">
         <h3>Login Required</h3>
-        <p class="muted">Sign in to borrow or reserve books.</p>
         <input id="emailInput" type="email" placeholder="Email" required />
         <input id="passwordInput" type="password" placeholder="Password" required />
-        <button class="btn btn-primary" type="submit">Sign In</button>
-        <button class="btn btn-google" id="googleBtn" type="button">Continue with Google</button>
-        <button class="btn btn-ghost" type="button" id="cancelAuth">Cancel</button>
+        <button class="primary" type="submit">Sign In</button>
+        <button class="secondary" id="googleBtn" type="button">Continue with Google</button>
+        <button class="ghost" id="cancelAuth" type="button">Cancel</button>
       </form>
     </dialog>
 
     <dialog id="verifyModal" class="modal">
       <form class="modal-card" id="verifyForm" method="dialog">
         <h3>Student Verification</h3>
-        <p class="muted">Enter Register Number to verify your student identity.</p>
         <input id="registerInput" type="text" placeholder="Register Number" required />
-        <button class="btn btn-primary" type="submit">Verify</button>
-        <p id="verifyMessage" class="muted"></p>
+        <button class="primary" type="submit">Verify</button>
+        <p id="verifyMessage"></p>
       </form>
     </dialog>
 
     <dialog id="profileModal" class="modal">
       <form class="modal-card" id="profileForm" method="dialog">
         <h3>Confirm Profile</h3>
-        <p class="muted">Combined data from auth provider + student database.</p>
-        <input id="nameField" type="text" placeholder="Name" />
+        <input id="nameField" placeholder="Name" />
         <input id="emailField" type="email" placeholder="Email" />
-        <input id="phoneField" type="text" placeholder="Phone" />
-        <input id="deptField" type="text" placeholder="Department" />
-        <button class="btn btn-primary" type="submit">Save Profile</button>
+        <input id="phoneField" placeholder="Phone" />
+        <input id="deptField" placeholder="Department" />
+        <button class="primary" type="submit">Save Profile</button>
       </form>
     </dialog>
 
